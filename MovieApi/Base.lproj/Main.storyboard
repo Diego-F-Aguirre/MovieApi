@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <scenes>
+        <!--Movie List View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="MovieListViewController" customModule="MovieApi" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="ksg-zW-J2n">
+                                <rect key="frame" x="170" y="28" width="260" height="310"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="310" id="3mz-cP-ogk"/>
+                                    <constraint firstAttribute="width" constant="260" id="mlm-Tb-mgr"/>
+                                </constraints>
+                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="cMa-5X-Ied">
+                                    <size key="itemSize" width="261" height="305"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="movieCell" id="X8C-VL-wpg" customClass="MovieCollectionViewCell" customModule="MovieApi" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="3" width="261" height="305"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="261" height="305"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="9hG-G3-SYq">
+                                                    <rect key="frame" x="8" y="8" width="245" height="289"/>
+                                                </imageView>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstItem="9hG-G3-SYq" firstAttribute="top" secondItem="X8C-VL-wpg" secondAttribute="topMargin" id="ItL-GI-rMM"/>
+                                            <constraint firstAttribute="trailingMargin" secondItem="9hG-G3-SYq" secondAttribute="trailing" id="PRl-xr-nbc"/>
+                                            <constraint firstAttribute="bottomMargin" secondItem="9hG-G3-SYq" secondAttribute="bottom" id="YMP-mg-tnq"/>
+                                            <constraint firstItem="9hG-G3-SYq" firstAttribute="leading" secondItem="X8C-VL-wpg" secondAttribute="leadingMargin" id="toX-NL-Jhj"/>
+                                        </constraints>
+                                        <connections>
+                                            <outlet property="image" destination="9hG-G3-SYq" id="7rB-9k-qCy"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="Guu-zI-M9q"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="3DB-wC-5dB"/>
+                                </connections>
+                            </collectionView>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter a Movie" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="QaM-dT-Ujn">
+                                <rect key="frame" x="40" y="502" width="520" height="30"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="15"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fMK-m4-eaW">
+                                <rect key="frame" x="276" y="550" width="48" height="30"/>
+                                <state key="normal" title="Search"/>
+                                <connections>
+                                    <action selector="searchButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="zXL-QJ-sxf"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XSm-fA-3gP">
+                                <rect key="frame" x="40" y="343" width="520" height="28"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="28" id="WWL-rL-Q0W"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="20"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="249" text="" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YOu-NJ-jOQ">
+                                <rect key="frame" x="40" y="395" width="520" height="99"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="13"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RGt-CN-mhb">
+                                <rect key="frame" x="40" y="373" width="520" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="5t8-y4-AEJ"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="fMK-m4-eaW" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="0cV-a2-ouk"/>
+                            <constraint firstItem="RGt-CN-mhb" firstAttribute="top" secondItem="XSm-fA-3gP" secondAttribute="bottom" constant="2" id="4ag-gW-Q8x"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="QaM-dT-Ujn" secondAttribute="trailing" constant="20" id="6c0-YU-JeX"/>
+                            <constraint firstItem="QaM-dT-Ujn" firstAttribute="top" secondItem="YOu-NJ-jOQ" secondAttribute="bottom" constant="8" id="DHM-dW-bze"/>
+                            <constraint firstItem="RGt-CN-mhb" firstAttribute="leading" secondItem="XSm-fA-3gP" secondAttribute="leading" id="EIb-ST-o77"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="YOu-NJ-jOQ" secondAttribute="trailing" constant="20" id="Qo9-em-vpm"/>
+                            <constraint firstItem="RGt-CN-mhb" firstAttribute="trailing" secondItem="XSm-fA-3gP" secondAttribute="trailing" id="Rrj-c8-XJI"/>
+                            <constraint firstItem="XSm-fA-3gP" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="20" id="XON-g0-rul"/>
+                            <constraint firstItem="ksg-zW-J2n" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" id="b2c-2q-3aV"/>
+                            <constraint firstItem="YOu-NJ-jOQ" firstAttribute="top" secondItem="RGt-CN-mhb" secondAttribute="bottom" constant="2" id="cmO-aB-pqj"/>
+                            <constraint firstItem="ksg-zW-J2n" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" id="d1E-PQ-cwg"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="fMK-m4-eaW" secondAttribute="bottom" constant="20" id="fUi-w6-Ozu"/>
+                            <constraint firstItem="fMK-m4-eaW" firstAttribute="top" secondItem="QaM-dT-Ujn" secondAttribute="bottom" constant="18" id="hlR-0X-0qi"/>
+                            <constraint firstItem="QaM-dT-Ujn" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="20" id="jZm-W4-de6"/>
+                            <constraint firstItem="YOu-NJ-jOQ" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="20" id="oo8-D6-0L3"/>
+                            <constraint firstItem="XSm-fA-3gP" firstAttribute="top" secondItem="ksg-zW-J2n" secondAttribute="bottom" constant="5" id="s7j-yz-0o9"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="XSm-fA-3gP" secondAttribute="trailing" constant="20" id="sP5-Oy-nl8"/>
+                            <constraint firstItem="ksg-zW-J2n" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="yC9-AX-62Z"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="d1E-PQ-cwg"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <connections>
+                        <outlet property="collectionView" destination="ksg-zW-J2n" id="2m1-NS-d4i"/>
+                        <outlet property="movieSearchTextField" destination="QaM-dT-Ujn" id="m0y-Ay-GFd"/>
+                        <outlet property="movieTitleLabel" destination="XSm-fA-3gP" id="6vv-Ha-fkp"/>
+                        <outlet property="ratingLabel" destination="RGt-CN-mhb" id="VMo-As-cTo"/>
+                        <outlet property="summaryLabel" destination="YOu-NJ-jOQ" id="8jm-5c-ko8"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="245" y="337"/>
+        </scene>
+    </scenes>
+</document>
